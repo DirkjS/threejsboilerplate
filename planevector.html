@@ -1,0 +1,178 @@
+<!doctype html>
+<html>
+	<head>
+		<title>learningthree.js boiler plate for three.js</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+			
+		<script src="vendor/three.js/Three.js"></script>
+		<script src="vendor/three.js/Detector.js"></script>
+		<!-- see details at http://paulirish.com/2011/requestanimationframe-for-smart-animating/ -->
+		<script src="vendor/three.js/RequestAnimationFrame.js"></script>
+		<!-- https://github.com/mrdoob/stats.js -->
+		<script src="vendor/three.js/Stats.js"></script>
+
+		<script src="vendor/threex/THREEx.screenshot.js"></script>
+		<script src="vendor/threex/THREEx.FullScreen.js"></script>
+		<script src="vendor/threex/THREEx.WindowResize.js"></script>
+		<script src="vendor/DragPanControls.js"></script>
+
+		<link  href="css/main.css" rel="stylesheet"/>
+	</head>
+<body>
+	<!-- three.js container -->
+    	<div id="container"></div>
+	<!-- info on screen display -->
+	<div id="info">
+		<a href="http://learningthreejs.com/blog/2011/12/20/boilerplate-for-three-js/" target="_blank">LearningThree.js</a>
+		boiler plate for
+		<a href="https://github.com/mrdoob/three.js/" target="_blank">three.js</a>
+	</div> 
+	<div id="inlineDoc">
+		<span id="fullscreenDoc"><i>f</i> for fullscreen - </span><i>p</i> for screenshot
+	</div> 
+
+	<script type="text/javascript">
+		var stats, scene, renderer;
+		var camera, cameraControl;
+		if( !init() )	animate();
+		// init the scene
+		
+		function init(){
+			if( Detector.webgl ){
+				renderer = new THREE.WebGLRenderer({
+					antialias		: true,	// to get smoother output
+					preserveDrawingBuffer	: true	// to allow screenshot
+				});
+				renderer.setClearColorHex( 0xBBBBBB, 1 );
+			// uncomment if webgl is required
+			//}else{
+			//	Detector.addGetWebGLMessage();
+			//	return true;
+			}else{
+				renderer	= new THREE.CanvasRenderer();
+			}
+			renderer.setSize( window.innerWidth, window.innerHeight );
+			document.getElementById('container').appendChild(renderer.domElement);
+
+			// add Stats.js - https://github.com/mrdoob/stats.js
+			stats = new Stats();
+			stats.domElement.style.position	= 'absolute';
+			stats.domElement.style.bottom	= '0px';
+			document.body.appendChild( stats.domElement );
+
+			// create a scene
+			scene = new THREE.Scene();
+
+			// put a camera in the scene
+			camera = new THREE.PerspectiveCamera(35, window.innerWidth / window.innerHeight, 1, 10000 );
+			
+			var laVector = new THREE.Vector3(0,100,0);
+			
+			camera.position.set(150, -150, 150);
+	        controls = new THREE.TrackballControls( camera, renderer.domElement );
+	        controls.rotateSpeed = 1;
+	        controls.zoomSpeed = 5;
+	        controls.panSpeed = 2;
+	        controls.noZoom = false;
+	        controls.noPan = false;
+	        controls.staticMoving = false;
+	        controls.dynamicDampingFactor = 0.3;
+	        controls.minDistance = 5;
+	        controls.maxDistance = 1500;
+	        controls.keys = [ 65, 83, 68 ]; // [ rotateKey, zoomKey, panKey ]
+			scene.add(camera);
+			
+			
+
+			// create a camera contol
+			//cameraControls	= new THREE.DragPanControls(camera)
+
+			// transparently support window resize
+			THREEx.WindowResize.bind(renderer, camera);
+			// allow 'p' to make screenshot
+			THREEx.Screenshot.bindKey(renderer);
+			// allow 'f' to go fullscreen where this feature is supported
+			if( THREEx.FullScreen.available() ){
+				THREEx.FullScreen.bindKey();				
+			}else{
+				document.getElementById('fullscreenDoc').style.display	= "none";				
+			}
+
+			// here you add your objects
+			// - you will most likely replace this part by your own
+			var geometry	= new THREE.TorusGeometry( 1, 0.42 );
+			var material	= new THREE.MeshNormalMaterial();
+			var mesh	= new THREE.Mesh( geometry, material );
+			var object = new THREE.Object3D();
+			
+			object.add( cubes(50,100,25,150,0,100, 0xff0000) );
+			object.add(cs_axis(25,0,0,150,0,100,0xff0000));
+			object.add(cs_axis(0,25,0,150,0,100,0x00ff00));
+			object.add(cs_axis(0,0,25,150,0,100,0x0000ff));
+			scene.add(cs_axis(25,0,0,0,0,0,0xff0000));
+			scene.add(cs_axis(0,25,0,0,0,0,0x00ff00));
+			scene.add(cs_axis(0,0,25,0,0,0,0x0000ff));
+			
+			scene.add(cylinder(20,20,50,12));			
+			scene.add(object);
+		}
+		function cubes(xr, yr, zr, xp, yp, zp, kleur){
+			mat = new THREE.MeshBasicMaterial( { color: kleur, wireframe: true, opacity: 0.5 } );
+			cgeometry = new THREE.CubeGeometry(xr, yr, zr);
+			cube = new THREE.Mesh( cgeometry, mat );
+			cube.position.x =  xp;
+			cube.position.y =  yp;
+			cube.position.z =  zp;
+			return cube;
+		}
+		function cylinder(rt, rb, h, sr, sh, col){
+			mat = new THREE.MeshBasicMaterial( { color: col, wireframe: true, opacity: 0.5 } );
+			cgeometry = new THREE.CylinderGeometry(rt,rb,h,sr);
+			cylinder = new THREE.Mesh( cgeometry, mat );
+			cylinder.rotation.x = 1.57;
+			cylinder.position.x = 150;
+			cylinder.position.z = 100
+			return cylinder;
+		}
+		function cs_axis(xa, ya, za, offset_x, offset_y, offset_z, kleur) {		
+			var axis = new THREE.Geometry();
+			vector = new THREE.Vector3(0,0,0);
+	        axis.vertices.push( new THREE.Vertex( vector ) );
+			vector =  new THREE.Vector3(xa,ya,za);
+	        axis.vertices.push( new THREE.Vertex( vector ) );
+			mcs_line = new THREE.Line( axis, new THREE.LineBasicMaterial( { color: kleur, opacity: 1 } ) )
+			mcs_line.position.x = offset_x;
+			mcs_line.position.y = offset_y;
+			mcs_line.position.z = offset_z;
+			
+			return mcs_line;
+		}
+		// animation loop
+		function animate() {
+
+			// loop on request animation loop
+			// - it has to be at the begining of the function
+			// - see details at http://my.opera.com/emoller/blog/2011/12/20/requestanimationframe-for-smart-er-animating
+			requestAnimationFrame( animate );
+
+			// do the render
+			render();
+
+			// update stats
+			stats.update();
+		}
+
+		// render the scene
+		function render() {
+
+			// update camera controls
+			//cameraControls.update();
+			controls.update();
+			// actually render the scene
+			//camera.lookAt(150,0,100);
+			renderer.render( scene, camera );
+		}
+	</script>
+</body>
+</html>
