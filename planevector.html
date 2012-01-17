@@ -105,16 +105,19 @@
 			var material	= new THREE.MeshNormalMaterial();
 			var mesh	= new THREE.Mesh( geometry, material );
 			var object = new THREE.Object3D();
-			
-			object.add( cubes(50,100,25,150,0,100, 0xff0000) );
-			object.add(cs_axis(25,0,0,150,0,100,0xff0000));
-			object.add(cs_axis(0,25,0,150,0,100,0x00ff00));
-			object.add(cs_axis(0,0,25,150,0,100,0x0000ff));
+			var rot_vector = new THREE.Vector3(0,-3.14/6,3.14/4);
+			var off_x=0, off_y=0, off_z=100;
+			object.add(cubes(50,100,25,off_x,off_y,off_z,0xff0000));
+			object.add(cs_axis(25,0,0,off_x,off_y,off_z,0xff0000));
+			object.add(cs_axis(0,25,0,off_x,off_y,off_z,0x00ff00));
+			object.add(cs_axis(0,0,25,off_x,off_y,off_z,0x0000ff));
 			scene.add(cs_axis(25,0,0,0,0,0,0xff0000));
 			scene.add(cs_axis(0,25,0,0,0,0,0x00ff00));
 			scene.add(cs_axis(0,0,25,0,0,0,0x0000ff));
-			
-			scene.add(cylinder(20,20,50,12));			
+			object.add(cyl(20,20,50,12,0x00ffff,off_x,off_y,off_z));
+			//object.add(cyl(20,20,50,12,0x00ffff,50,off_y,off_z));
+			object.rotation = rot_vector;
+			scene.add(cyl(20,20,50,12,0xffff00,off_x,off_y,off_z));			
 			scene.add(object);
 		}
 		function cubes(xr, yr, zr, xp, yp, zp, kleur){
@@ -126,13 +129,13 @@
 			cube.position.z =  zp;
 			return cube;
 		}
-		function cylinder(rt, rb, h, sr, sh, col){
+		function cyl(rt, rb, h, sr, col, pos_x, pos_y, pos_z){
 			mat = new THREE.MeshBasicMaterial( { color: col, wireframe: true, opacity: 0.5 } );
 			cgeometry = new THREE.CylinderGeometry(rt,rb,h,sr);
 			cylinder = new THREE.Mesh( cgeometry, mat );
 			cylinder.rotation.x = 1.57;
-			cylinder.position.x = 150;
-			cylinder.position.z = 100
+			cylinder.position.x = pos_x;
+			cylinder.position.z = pos_z;
 			return cylinder;
 		}
 		function cs_axis(xa, ya, za, offset_x, offset_y, offset_z, kleur) {		
