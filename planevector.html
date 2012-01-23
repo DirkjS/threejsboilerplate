@@ -67,9 +67,9 @@
 			// put a camera in the scene
 			camera = new THREE.PerspectiveCamera(35, window.innerWidth / window.innerHeight, 1, 10000 );
 			
-			var laVector = new THREE.Vector3(0,100,0);
+			var laVector = new THREE.Vector3(0,100,100);
 			
-			camera.position.set(150, -150, 150);
+			camera.position.set(-200, -250, 800);
 	        controls = new THREE.TrackballControls( camera, renderer.domElement );
 	        controls.rotateSpeed = 1;
 	        controls.zoomSpeed = 5;
@@ -81,6 +81,7 @@
 	        controls.minDistance = 5;
 	        controls.maxDistance = 1500;
 	        controls.keys = [ 65, 83, 68 ]; // [ rotateKey, zoomKey, panKey ]
+			//controls.target.set(0,0,50);
 			scene.add(camera);
 			
 			
@@ -119,6 +120,9 @@
 			object.rotation = rot_vector;
 			scene.add(cyl(20,20,50,12,0xffff00,off_x,off_y,off_z));			
 			scene.add(object);
+			console.log(object.position);
+			controls.target.set(-50,0,50);
+			
 		}
 		function cubes(xr, yr, zr, xp, yp, zp, kleur){
 			mat = new THREE.MeshBasicMaterial( { color: kleur, wireframe: true, opacity: 0.5 } );
@@ -171,9 +175,9 @@
 
 			// update camera controls
 			//cameraControls.update();
+			//camera.lookAt(new THREE.Vector3(100,100,0));
 			controls.update();
 			// actually render the scene
-			//camera.lookAt(150,0,100);
 			renderer.render( scene, camera );
 		}
 	</script>

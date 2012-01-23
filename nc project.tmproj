@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>currentDocument</key>
+	<string>../../../dropbox/Dropbox/js/getting started/extra kort buiten links_setup_1.H</string>
+	<key>documents</key>
+	<array>
+		<dict>
+			<key>filename</key>
+			<string>../../../dropbox/Dropbox/amolf/nc-checker/nc-snelheid.tcl</string>
+			<key>lastUsed</key>
+			<date>2011-12-23T21:05:32Z</date>
+		</dict>
+		<dict>
+			<key>filename</key>
+			<string>../../../dropbox/Dropbox/js/getting started/ncreader.html</string>
+			<key>lastUsed</key>
+			<date>2012-01-21T07:37:07Z</date>
+		</dict>
+		<dict>
+			<key>filename</key>
+			<string>../../../dropbox/Dropbox/js/getting started/vc9-test.H</string>
+			<key>lastUsed</key>
+			<date>2012-01-03T16:18:26Z</date>
+		</dict>
+		<dict>
+			<key>filename</key>
+			<string>../three.js/examples/webgl_multiple_canvases_grid.html</string>
+			<key>lastUsed</key>
+			<date>2011-12-23T18:42:20Z</date>
+		</dict>
+		<dict>
+			<key>filename</key>
+			<string>../three.js/examples/webgl_geometry_text.html</string>
+			<key>lastUsed</key>
+			<date>2011-12-23T18:42:23Z</date>
+			<key>selected</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>filename</key>
+			<string>../../../dropbox/Dropbox/js/getting started/fc13.H</string>
+			<key>lastUsed</key>
+			<date>2012-01-03T16:11:07Z</date>
+		</dict>
+		<dict>
+			<key>filename</key>
+			<string>../../../dropbox/Dropbox/js/getting started/extra kort buiten links_setup_1.H</string>
+			<key>lastUsed</key>
+			<date>2012-01-21T07:37:07Z</date>
+		</dict>
+		<dict>
+			<key>filename</key>
+			<string>../../../dropbox/Dropbox/js/getting started/kort nabewerken6.H</string>
+			<key>lastUsed</key>
+			<date>2011-12-28T11:40:35Z</date>
+		</dict>
+	</array>
+	<key>fileHierarchyDrawerWidth</key>
+	<integer>200</integer>
+	<key>metaData</key>
+	<dict>
+		<key>../../../dropbox/Dropbox/amolf/nc-checker/nc-snelheid.tcl</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>0</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>171</integer>
+		</dict>
+		<key>../../../dropbox/Dropbox/js/getting started/extra kort buiten links_setup_1.H</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>37</integer>
+				<key>line</key>
+				<integer>46</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>310</integer>
+		</dict>
+		<key>../../../dropbox/Dropbox/js/getting started/fc13.H</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>0</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+		<key>../../../dropbox/Dropbox/js/getting started/kort nabewerken6.H</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>11</integer>
+				<key>line</key>
+				<integer>350</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>158</integer>
+		</dict>
+		<key>../../../dropbox/Dropbox/js/getting started/ncreader.html</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>60</integer>
+				<key>line</key>
+				<integer>343</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>325</integer>
+		</dict>
+		<key>../../../dropbox/Dropbox/js/getting started/vc9-test.H</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>23</integer>
+				<key>line</key>
+				<integer>466</integer>
+			</dict>
+			<key>columnSelection</key>
+			<false/>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>344</integer>
+			<key>selectFrom</key>
+			<dict>
+				<key>column</key>
+				<integer>20</integer>
+				<key>line</key>
+				<integer>466</integer>
+			</dict>
+			<key>selectTo</key>
+			<dict>
+				<key>column</key>
+				<integer>23</integer>
+				<key>line</key>
+				<integer>466</integer>
+			</dict>
+		</dict>
+	</dict>
+	<key>openDocuments</key>
+	<array>
+		<string>../../../dropbox/Dropbox/js/getting started/ncreader.html</string>
+		<string>../../../dropbox/Dropbox/js/getting started/kort nabewerken6.H</string>
+		<string>../../../dropbox/Dropbox/js/getting started/extra kort buiten links_setup_1.H</string>
+		<string>../../../dropbox/Dropbox/amolf/nc-checker/nc-snelheid.tcl</string>
+		<string>../../../dropbox/Dropbox/js/getting started/fc13.H</string>
+		<string>../../../dropbox/Dropbox/js/getting started/vc9-test.H</string>
+	</array>
+	<key>showFileHierarchyDrawer</key>
+	<true/>
+	<key>windowFrame</key>
+	<string>{{-4, 4}, {856, 874}}</string>
+</dict>
+</plist>
